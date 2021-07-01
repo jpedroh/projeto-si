@@ -1,13 +1,13 @@
 from main import load_data 
-from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
 
-def naive_bayes():
+def decision_tree():
     X_train, X_test, y_train, y_test = load_data('./wifi_localization.txt')
 
-    gnb = GaussianNB()
-    y_pred = gnb.fit(X_train, y_train).predict(X_test)
+    dtc = DecisionTreeClassifier()
+    y_pred = dtc.fit(X_train, y_train).predict(X_test)
 
     print(f"Correct: {((y_test == y_pred).sum() / len(y_pred))*100:.2f}%")
     print(f"Incorrect: {((y_test != y_pred).sum() / len(y_pred))*100:.2f}%")
 
-naive_bayes()
+decision_tree()
