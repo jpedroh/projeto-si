@@ -15,7 +15,7 @@ def load_data(filename):
     with open(filename, encoding="utf-8") as f:
         reader = list(csv.reader(f, delimiter="\t"))
 
-        evidence, labels = ([int(r[-1]) for r in reader], [[int(rr) for rr in r[:-1]] for r in reader])
+        labels, evidence = ([int(r[-1]) for r in reader], [[int(rr) for rr in r[:-1]] for r in reader])
 
         return train_test_split(evidence, labels, test_size=TEST_SIZE, random_state=42)
 
